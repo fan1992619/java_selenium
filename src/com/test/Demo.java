@@ -7,12 +7,16 @@ package com.test;
 	import org.openqa.selenium.chrome.ChromeDriver;
 	 
 	public class Demo {
-	    public static void main(String[] args) {
+	    public static void main(String[] args) throws InterruptedException {
 	        System.setProperty("webdriver.chrome.driver","C:\\Users\\edz\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");//chromedriver服务地址
 	        WebDriver driver =new ChromeDriver(); //新建一个WebDriver 的对象，但是new 的是FirefoxDriver的驱动
 	        driver.get("http://www.baidu.com");//打开指定的网站
-	        driver.findElement(By.id("kw")).sendKeys(new  String[] {"hello"});//找到kw元素的id，然后输入hello
+	        Thread.sleep(5000);
+	        driver.findElement(By.id("kw")).sendKeys("hello");
+//	        driver.findElement(By.id("kw")).sendKeys(new  String[] {"hello"});//找到kw元素的id，然后输入hello
+	        Thread.sleep(3000);
 	        driver.findElement(By.id("su")).click(); //点击按扭
+	        Thread.sleep(3000);
 	        try {
 	            /**
 	             * WebDriver自带了一个智能等待的方法。
